@@ -11,6 +11,20 @@ body{
 	border-radius: 3px;
 	box-shadow: 3px 4px #3b3b3be6;
 }
+.cajaAltaUsuario {
+	margin-top: 7em;
+	padding: 1em;
+	margin-left: 2em;
+}
+
+.containerSearch{
+	margin-top: 7em;
+	margin-left: 15em;
+}
+.buscador{
+	margin-top: 7em;
+	width: 80%;
+}
 
 .contenedorLogo img{
 	width: 9em;
