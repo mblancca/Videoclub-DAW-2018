@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Django- Hello, World</title>
+	</head>
+	<body>
+		<center>
+			<h1>Hello, {{ name }}! </h1>
+			This is my first Django app.
+			Total visits: {{ visit_count }}
+			</br>
+			{% if visit_count > 1 %}
+				<a href={% url 'other' %}>Other</a>
+			{% endif %}
+		</center>
+	</body>
+</html>

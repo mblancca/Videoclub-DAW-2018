@@ -4,5 +4,6 @@ from . import views
 from django.conf.urls import include
 
 urlpatterns = [
-	path('',views.index, name='index')
+	path('',views.index, name='index'),
+	path('other/test',views.other, name='other')
 ]
