@@ -13,8 +13,6 @@ def index(request):
 	visit_count += 1
 	template=loader.get_template("myapp/index.html")
 	context = {
-		'name' : 'Pepe',
-		'visit_count' : visit_count,
 	}
 	return HttpResponse(template.render(context, request))
 	
@@ -28,3 +26,17 @@ def other(request):
 		]
 	}
 	return HttpResponse(template.render(context, request))
+
+def form(request):
+	context = {}
+	return render(request, "myapp/form.html", context)
+
+texts = []
+
+def process_form(request):
+	context = {}
+	if request.method == 'POST':
+		input_text = request.POST['input_text']
+		texts.append(input_text)
+		context['texts'] = texts
+	return render(request, "myapp/process_form.html", context)
