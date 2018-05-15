@@ -1,5 +1,10 @@
 body{ 	
-	background-image: url("../Images/fondoLogin.jpg");
+	/*background-image: url("../Images/fondoLogin.jpg");*/
+	background: #141414;
+	color: #fff;
+}
+.barraNavegacion{
+	margin-bottom: 10em;
 }
 
 .cajaLogin{
