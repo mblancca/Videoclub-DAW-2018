@@ -4,7 +4,7 @@ body{
 	color: #fff;
 }
 .barraNavegacion{
-	margin-bottom: 10em;
+	margin-bottom: 4em;
 }
 
 .cajaLogin{
@@ -25,10 +25,6 @@ body{
 .containerSearch{
 	margin-top: 7em;
 	margin-left: 15em;
-}
-.buscador{
-	margin-top: 7em;
-	width: 80%;
 }
 
 .contenedorLogo img{
@@ -52,6 +48,34 @@ body{
 .custom-control{
 	margin-bottom: 1em;
 }
+
+.carousel-inner {
+	width: 80%;
+	margin-left: 10%;
+}
+
+.sliders{
+	margin-top: 5em;
+}
+
+.tituloSliders{
+	margin: 1em;
+	margin-left: 2em;
+}
+
+.buscador{
+	display: inline-block;
+    text-align: center;
+	width: 100%;
+}
+.buscador input {
+	width: 46% !important;
+	height: 3.5em;
+}
+.buscador button{	
+	height: 3.5em;
+}
+
 
 /*Resoluciones pequenas*/
 @media only screen and (max-width: 600px) {
