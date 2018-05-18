@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
+<head id="head">
+    <title>
+        NetFliXXX
+    </title>
+    <meta name="description" content="Tu videoClub Online de ninguna confianza :)" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9" /> 
+
+    <!-- Archivos CSS-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/general.css' %}"/>   
+
+    <!-- Fin archivos CSS-->
+    <!-- Archivos JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.js' %}"></script>  
+    <!-- Fin archivos JS-->
+
+</head>
+<body>
+    <!--CABECERA-->
+
+    <div class="contenedorLogo">
+        <img src="{% static 'myapp/Netflix-logo.png' %}"/>
+    </div>
+
+    <div>
+        <a class="registrarse">¿No estás registrado?</a>
+    </div>
+
+    <div class="container cajaLogin">
+        <div class="row align-self-center justify-content-center">
+          <div class="col-md-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Iniciar sesión</h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="E-mail" name="email" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                <label class="custom-control-label" for="customCheck1">Remember me</label>
+                        </div>
+                        <a href="{% url 'index' %}">  
+                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Login"/>
+                        </a>
+                    </fieldset>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <!--footer-->
+
+
+</body>
+</html>

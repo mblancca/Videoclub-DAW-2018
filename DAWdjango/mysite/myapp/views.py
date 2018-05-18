@@ -7,6 +7,10 @@ from django.shortcuts import render
 from django.template import loader
 
 
-def prueba(request):
-    template = loader.get_template("myapp/Index.html")
+def login(request):
+    template = loader.get_template("myapp/login.html")
+    return HttpResponse(template.render())
+
+def index(request):
+    template = loader.get_template("myapp/index.html")
     return HttpResponse(template.render())
