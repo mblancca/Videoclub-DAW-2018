@@ -1,4 +1,4 @@
-"""mysite URL Configuration
+"""videoclub URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -15,22 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	# path('', include('myapp.urls'))
 ]
 
-# Use include() to add paths from the application 
+# Use include() to add paths from the catalog application 
 from django.urls import include
 
 urlpatterns += [
-    path('myapp/', include('myapp.urls')),
+    path('catalogo/', include('catalogo.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='/myapp/', permanent=True)),
+    path('', RedirectView.as_view(url='/catalogo/', permanent=True)),
 ]
+
+# Use static() to add url mapping to serve static files during development (only)
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

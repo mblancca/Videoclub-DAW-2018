@@ -1,0 +1,69 @@
+{
+    // Utilizar IntelliSense para aprender acerca de los posibles atributos.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos 
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Django",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry" : true,
+            "pythonPath" :"${config:python.pythonPath}",
+            "program": "${workspaceFolder}\\DAWDjango\\mysite\\manage.py",
+            "cwd" :"${workspaceFolder}",
+            "args": [
+                "runserver",
+                "--noreload",
+                "--nothreading"
+            ],
+            "env" : {},
+            "envFile" :"${workspaceFolder}/.env", 
+            "debugOptions": [
+                "RedirectOutput",
+                "Django"
+            ]
+        },
+        {
+            "type": "PowerShell",
+            "request": "launch",
+            "name": "PowerShell Launch Current File",
+            "script": "${file}",
+            "args": [],
+            "cwd": "${file}"
+        },
+        {
+            "type": "PowerShell",
+            "request": "launch",
+            "name": "PowerShell Launch Current File in Temporary Console",
+            "script": "${file}",
+            "args": [],
+            "cwd": "${file}",
+            "createTemporaryIntegratedConsole": true
+        },
+        {
+            "type": "PowerShell",
+            "request": "launch",
+            "name": "PowerShell Launch Current File w/Args Prompt",
+            "script": "${file}",
+            "args": [
+                "${command:SpecifyScriptArgs}"
+            ],
+            "cwd": "${file}"
+        },
+        {
+            "type": "PowerShell",
+            "request": "attach",
+            "name": "PowerShell Attach to Host Process",
+            "processId": "${command:PickPSHostProcess}",
+            "runspaceId": 1
+        },
+        {
+            "type": "PowerShell",
+            "request": "launch",
+            "name": "PowerShell Interactive Session",
+            "cwd": "${workspaceRoot}"
+        }
+    ]
+}
