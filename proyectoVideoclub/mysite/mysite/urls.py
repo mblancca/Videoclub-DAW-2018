@@ -27,3 +27,6 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/videoclub/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+urlpatterns += [
+    url(r'^videoclub/', include('videoclub.urls')),
+]

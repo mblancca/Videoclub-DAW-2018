@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Other page</title>
+	</head>
+	<body>
+		<ul>
+			{% for item in item_list %}
+				<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+		<a href={% url 'index' %}>Back</a>
+	</body>
+</html>
