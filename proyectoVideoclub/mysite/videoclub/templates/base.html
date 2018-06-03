@@ -1,33 +1,38 @@
-{% load staticfiles %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
-
-<head id="head">
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="description" content="Tu videoClub Online de ninguna confianza :)" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="content-style-type" content="text/css" />
-    <meta http-equiv="content-script-type" content="text/javascript" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=9" />
-
-    <!-- Archivos CSS-->
-
-    <link rel="stylesheet" type="text/css" href="{% static 'myapp/bootstrap.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'myapp/general.css' %}" />
-
-    <!-- Fin archivos CSS-->
-    <!-- Archivos JS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{% static 'bootstrap.js' %}"></script>
-    <!-- Fin archivos JS-->
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+  {% block title %}<title>Videoclub DAW 2018</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
-    {% block content %} {% endblock content %}
-</body>
 
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-2">
+      {% block sidebar %}
+      <ul class="sidebar-nav">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'catalogoPeliculas' %}">Catálogo de películas</a></li>
+          <li><a href="{% url 'verPelicula' %}">Ver película</a></li>
+      </ul>
+     {% endblock %}
+      </div>
+      <div class="col-sm-10 ">
+      {% block content %}{% endblock %}
+      </div>
+    </div>
+
+  </div>
+</body>
 </html>
