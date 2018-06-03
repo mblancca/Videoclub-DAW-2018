@@ -29,8 +29,7 @@ class Pelicula(models.Model):
 
     URLcontenido = models.CharField(max_length=200)
 
-    descripcion = models.TextField(
-        max_length=1000, help_text="Escribe una descripción de la película")
+    descripcion = models.TextField(max_length=1000, help_text="Escribe una descripción de la película")
 
     anyo = models.DateField()
 
@@ -42,7 +41,7 @@ class Pelicula(models.Model):
 
     URLportada = models.CharField(max_length=200)
     
-    valoracion = models.DecimalField()
+    valoracion = models.DecimalField(decimal_places=1,max_digits=2)
 
     def __str__(self):
         """
