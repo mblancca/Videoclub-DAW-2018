@@ -32,13 +32,13 @@ class Pelicula(models.Model):
     descripcion = models.TextField(
         max_length=1000, help_text="Escribe una descripción de la película")
 
-    URLcontenido = models.DateField()
+    anyo = models.DateField()
 
-    director = models.ForeignKey(
-        'Director', on_delete=models.SET_NULL, null=True)
+    genero = models.ManyToManyField(Genero, help_text='Introduce genero')
+
+    director = models.ForeignKey('Director', on_delete=models.SET_NULL, null=True)
     
-    reparto = models.ManyToManyField(
-        'Actor', on_delete=models.SET_NULL, null=True)
+    reparto = models.ManyToManyField('Actor', help_text='Introduce actor(es)')
 
     URLportada = models.CharField(max_length=200)
     
