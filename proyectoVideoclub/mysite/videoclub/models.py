@@ -9,14 +9,14 @@ class Genero(models.Model):
     """
     id = models.AutoField(primary_key=True)
 
-    name = models.CharField(
+    nombre = models.CharField(
         max_length=200, help_text="Escribe un género cinematográfico.")
 
     def __str__(self):
         """
         Cadena que representa a la instancia particular del modelo (p. ej en el sitio de Administración)
         """
-        return self.name
+        return self.nombre
 
 
 # Used to generate URLs by reversing the URL patterns
@@ -87,7 +87,7 @@ class Director(models.Model):
     nombre = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField(null=True, blank=True)
     fecha_fallecimiento = models.DateField(null=True, blank=True)
-    es_actor = models.BooleanField()
+    #es_actor = models.BooleanField(initial=False)
     
     def __str__(self):
         """

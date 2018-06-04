@@ -1,8 +1,9 @@
-from django.urls import path
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('pelicula-info/<int:pk>', views.catalogoPeliculas.as_view(), name='catalogoPeliculas'),
-    path('pelicula/<int:pk>', views.verPelicula, name='verPelicula'),
+    url('', views.index, name='index'),
+    #url(r'^$', BienvenidaView.as_view(), name='bienvenida'),
+    url('videoclub/<int:pk>',views.catalogoPeliculas.as_view(), name='catalogoPeliculas'),
+	url('videoclub/<int:pk>/play', views.verPelicula, name='verPelicula'),
 ]

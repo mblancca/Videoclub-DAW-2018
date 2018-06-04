@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views import generic
+from django.views.generic import CreateView, TemplateView
 
 # Create your views here.
 
@@ -21,8 +23,6 @@ def index(request):
         context={'Nº de peliculas':n_peliculas,'Nº de directores':n_directores},
     )
 
-from django.views import generic
-
 class catalogoPeliculas(generic.ListView):
     model = Pelicula
     paginate_by = 10
@@ -30,10 +30,11 @@ class catalogoPeliculas(generic.ListView):
 class infoPeli(generic.DetailView):
     model = Pelicula
 
-def verPelicula(request):
-    nombre_pelicula=Pelicula.objects.filter(nombre__exact='Gladiator')
-    return render(
-        request,
-        'verPelicula.html', 
-        context={'nombre_pelicula':nombre_pelicula},
-    )
+class verPelicula(TemplateView):
+    def cargarPelicula(self, request):
+        nombre_pelicula=Pelicula.objects.filter(nombre__exact='Gladiator')
+        return render(
+            request,
+            'verPelicula.html', 
+            context={'nombre_pelicula':nombre_pelicula},
+        )

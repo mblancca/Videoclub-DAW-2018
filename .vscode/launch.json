@@ -11,7 +11,7 @@
             "request": "launch",
             "stopOnEntry" : true,
             "pythonPath" :"${config:python.pythonPath}",
-            "program": "${workspaceFolder}\\DAWDjango\\mysite\\manage.py",
+            "program": "${workspaceFolder}\\proyectoVideoclub\\mysite\\manage.py",
             "cwd" :"${workspaceFolder}",
             "args": [
                 "runserver",
