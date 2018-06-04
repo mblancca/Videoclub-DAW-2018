@@ -27,7 +27,7 @@ class catalogoPeliculas(generic.ListView):
     model = Pelicula
     paginate_by = 10
 
-class infoPeli(generic.DetailView):
+class peliculaInfo(generic.DetailView):
     model = Pelicula
 
 class verPelicula(TemplateView):

@@ -1,9 +1,10 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
 urlpatterns = [
-    url('', views.index, name='index'),
+    #path('', views.index, name='index'),
+    path('', views.catalogoPeliculas.as_view(), name='catalogoPeliculas'),
     #url(r'^$', BienvenidaView.as_view(), name='bienvenida'),
-    url('videoclub/<int:pk>',views.catalogoPeliculas.as_view(), name='catalogoPeliculas'),
-	url('videoclub/<int:pk>/play', views.verPelicula, name='verPelicula'),
+    path('videoclub/<int:pk>',views.peliculaInfo.as_view(), name='pelicula-info'),
+	path('videoclub/<int:pk>/play', views.verPelicula, name='verPelicula'),
 ]
