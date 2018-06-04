@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Actor: {{ Actor }} </h1>
+<p>{{Actor.fecha_nacimiento}} - {% if Actor.fecha_fallecimiento %}{{Actor.fecha_fallecimiento}}{% endif %}</p>
+
+<div style="margin-left:20px;margin-top:20px">
+<h4>Peliculas</h4>
+
+<dl>
+{% for Pelicula in Actor.Pelicula_set.all %}
+  <dt><a href="{% url 'peliculaInfo' Pelicula.pk %}">{{Pelicula}}</a></dt>
+  <dd>{{Pelicula.Descripcion}}</dd>
+{% endfor %}
+</dl>
+
+</div>
+{% endblock %}

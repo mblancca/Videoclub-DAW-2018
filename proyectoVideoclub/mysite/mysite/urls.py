@@ -25,9 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #pagina home. catalogo peliculas. se pueden filtrar por nombre, genero y/o director (y actor). ¿mostrar info?
     path('videoclub/', include('videoclub.urls')), 
-    #ventana en la que se visualiza una pelicula especifica
-    path('videoclub/pelicula/<int:pk>', include('videoclub.urls')),
-    #muestra info de una pelicula especifica
-    path('videoclub/pelicula-info/<int:pk>', include('videoclub.urls')), 
     path('', RedirectView.as_view(url='/videoclub/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
