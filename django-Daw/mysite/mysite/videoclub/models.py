@@ -7,7 +7,7 @@ class Genero(models.Model):
     """
     Modelo que representa un género cinematográfico (p. ej. ciencia ficción, poesía, etc.).
     """
-    nombre = models.CharField(max_length=200, help_text="Introduzca un genero de película (Ciencia ficcion, Comedia, etc.)")
+    name = models.CharField(max_length=200, help_text="Introduzca un genero de película (e.g. Science Fiction, French Poetry etc.)")
     
     def __str__(self):
         """
@@ -88,10 +88,10 @@ class Director(models.Model):
     """
     Modelo que representa un director
     """
-    nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    fecha_de_nacimiento = models.DateField(null=True, blank=True)
-    fecha_de_defuncion = models.DateField('Fallecido', null=True, blank=True)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    date_of_birth = models.DateField(null=True, blank=True)
+    date_of_death = models.DateField('Died', null=True, blank=True)
     
     def get_absolute_url(self):
         """
@@ -104,4 +104,4 @@ class Director(models.Model):
         """
         String para representar el Objeto Modelo
         """
-        return '%s, %s' % (self.apellido, self.nombre)
+        return '%s, %s' % (self.last_name, self.first_name)

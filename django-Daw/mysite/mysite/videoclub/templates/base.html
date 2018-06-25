@@ -23,14 +23,14 @@
       {% block sidebar %}
       <ul class="sidebar-nav">
           <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'peliculas' %}">Todas las peliculas</a></li>
-          <li><a href="{% url 'directores' %}">Todos los directores</a></li>
+          <li><a href="{% url 'peliculas' %}">All movies</a></li>
+          <li><a href="{% url 'directores' %}">All directors</a></li>
 
           {% if user.is_authenticated %}
             <li>User: {{ user.get_username }}</li>
-            <li><a href="{% url 'logout'%}?next={{request.path}}">Cerrar sesión</a></li>   
+            <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
           {% else %}
-            <li><a href="{% url 'login'%}?next={{request.path}}">Iniciar sesión</a></li>   
+            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
           {% endif %} 
       </ul>
      {% endblock %}
@@ -43,13 +43,13 @@
               <div class="pagination">
                   <span class="page-links">
                       {% if page_obj.has_previous %}
-                          <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">anterior</a>
+                          <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
                       {% endif %}
                       <span class="page-current">
                           Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                       </span>
                       {% if page_obj.has_next %}
-                          <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">siguiente</a>
+                          <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
                       {% endif %}
                   </span>
               </div>

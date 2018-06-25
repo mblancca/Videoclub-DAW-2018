@@ -17,17 +17,17 @@ class Migration(migrations.Migration):
             name='Director',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombre', models.CharField(max_length=100)),
-                ('apellido', models.CharField(max_length=100)),
-                ('fecha_de_nacimiento', models.DateField(blank=True, null=True)),
-                ('fecha_de_defuncion', models.DateField(blank=True, null=True, verbose_name='Fallecido')),
+                ('first_name', models.CharField(max_length=100)),
+                ('last_name', models.CharField(max_length=100)),
+                ('date_of_birth', models.DateField(blank=True, null=True)),
+                ('date_of_death', models.DateField(blank=True, null=True, verbose_name='Died')),
             ],
         ),
         migrations.CreateModel(
             name='Genero',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombre', models.CharField(help_text='Introduzca un genero de película (Ciencia ficción, Drama, etc.)', max_length=200)),
+                ('name', models.CharField(help_text='Introduzca un genero de película (e.g. Science Fiction, French Poetry etc.)', max_length=200)),
             ],
         ),
         migrations.CreateModel(
@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('titulo', models.CharField(max_length=200)),
-                ('sinopsis', models.TextField(help_text='Descripción breve del argumento de la pelicula', max_length=1000)),
+                ('sumario', models.TextField(help_text='Enter a brief description of the movie', max_length=1000)),
                 ('isbn', models.CharField(help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>', max_length=13, verbose_name='ISBN')),
                 ('director', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='videoclub.Director')),
                 ('genero', models.ManyToManyField(help_text='Selecciona un género para esta pelicula', to='videoclub.Genero')),
