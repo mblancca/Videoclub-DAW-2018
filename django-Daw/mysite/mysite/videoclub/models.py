@@ -24,7 +24,7 @@ class Pelicula(models.Model):
 
     titulo = models.CharField(max_length=200)
 
-    director = models.ForeignKey('Director', on_delete=models.SET_NULL, null=True)
+    director = models.ForeignKey('Persona', on_delete=models.SET_NULL, null=True)
     # ForeignKey, ya que un Pelicula tiene un solo Director, pero el mismo Director puede haber escrito muchos Peliculas.
     # 'Director' es un string, en vez de un objeto, porque la clase Director aún no ha sido declarada.
 
@@ -84,7 +84,7 @@ class InstanciaPelicula(models.Model):
 
 #####################################################
 
-class Director(models.Model):
+class Persona(models.Model):
     """
     Modelo que representa un director
     """
@@ -92,12 +92,16 @@ class Director(models.Model):
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('Died', null=True, blank=True)
-    
+    #... esActor = char
+    #... esDirector
+    #...
+    #...
+
     def get_absolute_url(self):
         """
-        Retorna la url para acceder a una instancia particular de un director.
+        Retorna la url para acceder a una instancia particular de un Persona.
         """
-        return reverse('director-detalle', args=[str(self.id)])
+        return reverse('persona-detalle', args=[str(self.id)])
     
 
     def __str__(self):

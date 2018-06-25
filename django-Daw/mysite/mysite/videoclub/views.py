@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Pelicula, Director, InstanciaPelicula, Genero
+from .models import Pelicula, Persona, InstanciaPelicula, Genero
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,11 +12,11 @@ def index(request):
     Función vista para la página inicio del sitio.
     """
     # Genera contadores de algunos de los objetos principales
-    num_books=Pelicula.objects.all().count()
+    num_peliculas=Pelicula.objects.all().count()
     num_instances=InstanciaPelicula.objects.all().count()
     # Libros disponibles (status = 'a')
     num_instances_available=InstanciaPelicula.objects.filter(status__exact='a').count()
-    num_authors=Director.objects.count()  # El 'all()' esta implícito por defecto.
+    num_directores=Persona.objects.count()  # El 'all()' esta implícito por defecto.
 
     # Number of visits to this view, as counted in the session variable.
     num_visits=request.session.get('num_visits', 0)
@@ -26,7 +26,7 @@ def index(request):
     return render(
         request,
         'index.html',
-        context={'num_books':num_books,'num_instances':num_instances,'num_instances_available':num_instances_available,'num_authors':num_authors,
+        context={'num_peliculas':num_peliculas,'num_instances':num_instances,'num_instances_available':num_instances_available,'num_directores':num_directores,
         'num_visits':num_visits}, # num_visits appended
     )
 
@@ -52,16 +52,16 @@ def pelicula_detail_view(request,pk):
     )
 
 class DirectorListView(LoginRequiredMixin,generic.ListView):
-    model = Director
+    model = Persona
     paginate_by = 1
 
 class DirectorDetailView(LoginRequiredMixin,generic.DetailView):
-    model = Director
+    model = Persona
 
 def director_detail_view(request,pk):
     try:
-        director_id=Director.objects.get(pk=pk)
-    except Director.DoesNotExist:
+        persona_id=Persona.objects.get(pk=pk)
+    except Persona.DoesNotExist:
         raise Http404("Director does not exist")
 
     #director_id=get_object_or_404(Pelicula, pk=pk)
@@ -69,7 +69,7 @@ def director_detail_view(request,pk):
     return render(
         request,
         'videoclub/director_detail.html',
-        context={'director':director_id,}
+        context={'persona':persona_id,}
     )
 
 
