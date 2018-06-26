@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Book List</h1>
+    <h1>Lista de películas</h1>
 
     {% if pelicula_list %}
     <ul>
@@ -14,6 +14,6 @@
 
     </ul>
     {% else %}
-      <p>There are no books in the library.</p>
+      <p>No hay películas en el videoclub.</p>
     {% endif %}       
 {% endblock %}

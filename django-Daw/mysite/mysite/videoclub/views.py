@@ -41,7 +41,7 @@ def pelicula_detail_view(request,pk):
     try:
         pelicula_id=Pelicula.objects.get(pk=pk)
     except Pelicula.DoesNotExist:
-        raise Http404("Book does not exist")
+        raise Http404("La película no existe")
 
     #pelicula_id=get_object_or_404(Pelicula, pk=pk)
     
@@ -62,7 +62,7 @@ def director_detail_view(request,pk):
     try:
         persona_id=Persona.objects.get(pk=pk)
     except Persona.DoesNotExist:
-        raise Http404("Director does not exist")
+        raise Http404("El director no existe")
 
     #director_id=get_object_or_404(Pelicula, pk=pk)
     

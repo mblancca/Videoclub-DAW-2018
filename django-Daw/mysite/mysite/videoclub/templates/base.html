@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   
-  {% block title %}<title>Local Library</title>{% endblock %}
+  {% block title %}<title>Videoclub</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,15 +22,15 @@
       <div class="col-sm-2">
       {% block sidebar %}
       <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'peliculas' %}">Lista de peliculas</a></li>
+          <li><a href="{% url 'index' %}">Inicio</a></li>
+          <li><a href="{% url 'peliculas' %}">Lista de películas</a></li>
           <li><a href="{% url 'directores' %}">Lista de directores</a></li>
 
           {% if user.is_authenticated %}
-            <li>User: {{ user.get_username }}</li>
-            <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+            <li>Usuario: {{ user.get_username }}</li>
+            <li><a href="{% url 'logout'%}?next={{request.path}}">Cerrar sesión</a></li>   
           {% else %}
-            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+            <li><a href="{% url 'login'%}?next={{request.path}}">Iniciar sesión</a></li>   
           {% endif %} 
       </ul>
      {% endblock %}
