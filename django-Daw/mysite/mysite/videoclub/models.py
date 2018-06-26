@@ -38,14 +38,14 @@ class Pelicula(models.Model):
     
     def __str__(self):
         """
-        String que representa al objeto Book
+        String que representa al objeto Pelicula
         """
         return self.titulo
     
     
     def get_absolute_url(self):
         """
-        Devuelve el URL a una instancia particular de Book
+        Devuelve el URL a una instancia particular de Pelicula
         """
         return reverse('pelicula-detalle', args=[str(self.id)])
 

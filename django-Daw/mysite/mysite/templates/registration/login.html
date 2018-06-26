@@ -11,7 +11,7 @@
     <p>No tienes permiso para acceder a esta página. Si deseas continuar, 
       inicia sesión con una cuenta que tenga los permisos necesarios</p>
     {% else %}
-    <p>Inicia sesión para ver esta página.</p>
+    <p>Inicia sesión para acceder.</p>
     {% endif %}
 {% endif %}
 
@@ -19,11 +19,11 @@
 {% csrf_token %}
 
 <div>
-  <td>{{ form.username.label_tag }}</td>
+  <td>{{ "Usuario:" }}</td>
   <td>{{ form.username }}</td>
 </div>
 <div>
-  <td>{{ form.password.label_tag }}</td>
+  <td>{{ "Contraseña:" }}</td>
   <td>{{ form.password }}</td>
 </div>
 
