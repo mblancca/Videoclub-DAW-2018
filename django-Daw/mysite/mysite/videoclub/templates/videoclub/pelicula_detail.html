@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Title: {{ pelicula.titulo }}</h1>
+
+  <p><strong>Director:</strong> <a href="">{{ pelicula.director }}</a></p> <!-- author detail link not yet defined -->
+  <p><strong>Summary:</strong> {{ pelicula.sumario }}</p>
+  <p><strong>Genre:</strong> {% for genre in pelicula.genero.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Trailer</h4>
+
+    {% for copy in pelicula.instanciapelicula_set.all %}
+    <hr>
+    <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
+    {% if copy.status != 'a' %}<p><strong>Due to be returned:</strong> {{copy.due_back}}</p>{% endif %}
+    <p><strong>Imprint:</strong> {{copy.imprint}}</p>
+    <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
+    {% endfor %}
+    <iframe width="720" height="480" src="https://www.youtube.com/embed/jQR3_tgutWw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  
+  </div>
+{% endblock %}

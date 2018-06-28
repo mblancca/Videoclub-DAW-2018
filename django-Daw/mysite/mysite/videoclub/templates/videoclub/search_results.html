@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>You searched for: <strong>{{ query }}</strong></p>
+   
+{% if peliculas %}           
+    <p>Hay {{ peliculas|length }} pelicula{{ peliculas|pluralize }}.</p>
+    <ul>               
+        {% for pelicula in peliculas %}               
+        <li>Resultado: {{ pelicula.titulo }} </li>               
+        {% endfor %}           
+    </ul>       
+{% else %}           
+    <p>No peliculas matched your search criteria.</p>       
+{% endif %}  
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Director List</h1>
+
+    {% if persona_list %}
+    <ul>
+
+      {% for persona in persona_list %}
+      <li>
+        <a href="{{ persona.get_absolute_url }}">Nombre del director: {{ persona.first_name }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no directors in the library.</p>
+    {% endif %}       
+{% endblock %}
