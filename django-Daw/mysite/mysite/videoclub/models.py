@@ -1,6 +1,5 @@
 from django.db import models
-from django.urls import reverse #Used to generate URLs by reversing the URL patterns
-
+from django.urls import reverse
 #####################################################
 
 class Genero(models.Model):
@@ -11,8 +10,7 @@ class Genero(models.Model):
 #####################################################
 
 class Persona(models.Model):
-    first_name = models.CharField(max_length=100, default="")
-    last_name = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, default="")
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('Died', null=True, blank=True)
     esDirector = models.CharField(max_length=2, default="no",help_text="si/no , en minusculas todo")
@@ -21,7 +19,7 @@ class Persona(models.Model):
         return reverse('persona-detalle', args=[str(self.id)])    
 
     def __str__(self):
-        return '%s, %s' % (self.last_name, self.first_name)        
+        return self.nombre       
 
 #####################################################
 
@@ -32,14 +30,23 @@ class Pelicula(models.Model):
     año = models.DateField(null=True, blank=True)
     models.DateField(null=True, blank=True)
     director = models.ForeignKey(Persona, related_name='director',on_delete=models.SET_NULL, null=True)
-    reparto = models.ForeignKey(Persona, related_name='reparto',on_delete=models.SET_NULL, null=True)
+    reparto = models.ManyToManyField(Persona)
     urlPortada = models.CharField(max_length=200, default="")
     genero = models.ManyToManyField(Genero, help_text="Selecciona un género para esta pelicula")
-    valoracion = models.PositiveIntegerField()
+    valoracion = models.PositiveIntegerField(help_text="Valor de 0-100")
 
     def __str__(self):
         return self.titulo    
     
+    def get_portada(self):
+        return self.urlPortada
+
+    def get_url(self):
+        return self.url
+
+    def get_genero(self):
+        return self.genero
+
     def get_absolute_url(self):
         return reverse('pelicula-detalle', args=[str(self.id)])
 

@@ -1,0 +1,183 @@
+@font-face {
+    font-family: LemonMilk;
+    src: url(fonts/LemonMilk.otf);
+}
+@font-face {
+    font-family: LemonMilkbold;
+    src: url(fonts/LemonMilkbold.otf);
+}
+@font-face {
+    font-family: LemonMilkbolditalic;
+    src: url(fonts/LemonMilkbolditalic.otf);
+}
+@font-face {
+    font-family: LemonMilkitalic;
+    src: url(fonts/LemonMilkitalic.otf);
+}
+@font-face {
+    font-family: LemonMilklight;
+    src: url(fonts/LemonMilklight.otf);
+}
+@font-face {
+    font-family: LemonMilklightitalic;
+    src: url(fonts/LemonMilklightitalic.otf);
+}
+@font-face {
+    font-family: RobotoBlack;
+    src: url(fonts/Roboto-Black.ttf);
+}
+@font-face {
+    font-family: RobotoBlackItalic;
+    src: url(fonts/Roboto-BlackItalic.ttf);
+}
+@font-face {
+    font-family: RobotoBold;
+    src: url(fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: RobotoBold;
+    src: url(fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: RobotoLight;
+    src: url(fonts/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: RobotoMedium;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: RobotoThin;
+    src: url(fonts/Roboto-Thin.ttf);
+}
+
+
+
+body{ 	
+	background: url('fondoLogin.jpg');
+	color: #fff;
+	font-family: RobotoLight;
+}
+nav{
+	font-family: LemonMilklight;
+}
+
+.cuadroLogin{
+	margin: 0 auto;
+	margin-top: 25%;
+}
+.cajaUsuario{
+	margin-bottom: 5%;
+}
+.barraNavegacion{
+	margin-bottom: 4em;
+}
+
+.cajaLogin{
+	margin-top: 14em;
+	color: black;
+}
+.cajaLogin .col-md-4{
+	background-color: white;
+	padding: 1em;
+	border-radius: 3px;
+	box-shadow: 3px 4px #3b3b3be6;
+}
+.cajaAltaUsuario {
+	margin-top: 7em;
+	padding: 1em;
+	margin-left: 2em;
+}
+
+.containerSearch{
+	margin-top: 7em;
+	margin-left: 15em;
+}
+
+.contenedorLogo img{
+	width: 9em;
+	position: absolute;
+	top: 1em;
+	margin-left: 2.5em;
+}
+
+.registrarse{
+	position: absolute;
+	top: 1em;
+	left: 86%;
+	cursor: pointer;
+	color: white !important;
+}
+.registrarse:hover{
+	text-decoration: underline !important;
+}
+
+.custom-control{
+	margin-bottom: 1em;
+}
+
+.carousel-inner {
+	width: 80%;
+	margin-left: 10%;
+}
+
+.carousel-control-prev {
+	width: 9%;
+}
+
+.carousel-control-next {
+	width: 9%;
+}
+
+.sliders{
+	margin-top: 5em;
+}
+
+.tituloSliders{
+	margin: 1em;
+	margin-left: 2em;
+}
+
+.buscador{
+	display: inline-block;
+    text-align: center;
+	width: 100%;
+}
+.buscador input {
+	width: 46% !important;
+	height: 3.5em;
+}
+.buscador button{	
+	height: 3.5em;
+}
+
+.img{
+	width: 185px !important;
+	height: 278px !important;
+}
+
+.paginador{
+	margin-left: 46%;
+	margin-top: 5em;
+}
+
+li{
+	list-style-type: none;
+}
+
+.ulPeliculas{
+	display: flex;
+}
+
+.liPeliculas{
+	margin-right: 2em;
+}
+
+
+/*Resoluciones pequenas*/
+@media only screen and (max-width: 600px) {
+    .cajaLogin{
+		margin-top: 6em;
+		width: 90%;
+	}
+}

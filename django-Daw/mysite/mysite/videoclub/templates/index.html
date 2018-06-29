@@ -1,18 +1,137 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<div class="sliders">
+    <h2 class="tituloSliders">Más visitadas</h2>
+    <div id="gallery" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    {% if listaPeliculas1 %} {% for pelicula in listaPeliculas1 %}
+                    <div class="col">
+                        <a href="{{ pelicula.get_absolute_url }}">
+                            {{ pelicula.titulo }}
+                            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+                        </a>
+                    </div>
+                    {% endfor %} {% else %}
+                    </p>No hay peliculas</p>
+                    {% endif %}
+                </div>
+            </div>
 
-{% block content %}
-<h1>Local Library Home</h1>
+            <div class="carousel-item">
+                <div class="row">
+                    {% if listaPeliculas2 %} {% for pelicula in listaPeliculas2 %}
+                    <div class="col">
+                        <a href="{{ pelicula.get_absolute_url }}">
+                            {{ pelicula.titulo }}
+                            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+                        </a>
+                    </div>
+                    {% endfor %} {% else %}
+                    </p>No hay peliculas</p> {% endif %}
+                </div>
+            </div>
+        </div>
 
-  <p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a tutorial example on the Mozilla Developer Network.</p>
+        <a class="carousel-control-prev" href="#gallery" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
 
-<h2>Dynamic content</h2>
+        <a class="carousel-control-next" href="#gallery" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 
-  <p>The library has the following record counts:</p>
-  <ul>
-    <li><strong>Peliculas:</strong> {{ numero_peliculas }}</li>
+    <h2 class="tituloSliders">Más visitadas2</h2>
+    <div id="gallery2" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    {% if listaPeliculas3 %} {% for pelicula in listaPeliculas1 %}
+                    <div class="col">
+                        <a href="{{ pelicula.get_absolute_url }}">
+                            {{ pelicula.titulo }}
+                            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+                        </a>
+                    </div>
+                    {% endfor %} {% else %}
+                    </p>No hay peliculas</p>
+                    {% endif %}
+                </div>
+            </div>
 
-    <li><strong>Directores:</strong> {{ numActoresDirectores }}</li>
-  </ul>
-  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+            <div class="carousel-item">
+                <div class="row">
+                    {% if listaPeliculas4 %} {% for pelicula in listaPeliculas2 %}
+                    <div class="col">
+                        <a href="{{ pelicula.get_absolute_url }}">
+                            {{ pelicula.titulo }}
+                            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+                        </a>
+                    </div>
+                    {% endfor %} {% else %}
+                    </p>No hay peliculas</p> {% endif %}
+                </div>
+            </div>
+        </div>
 
+        <a class="carousel-control-prev" href="#gallery2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#gallery2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <h2 class="tituloSliders">Más visitadas3</h2>
+    <div id="gallery3" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    {% if listaPeliculas1 %} {% for pelicula in listaPeliculas1 %}
+                    <div class="col">
+                        <a href="{{ pelicula.get_absolute_url }}">
+                            {{ pelicula.titulo }}
+                            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+                        </a>
+                    </div>
+                    {% endfor %} {% else %}
+                    </p>No hay peliculas</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row">
+                    {% if listaPeliculas2 %} {% for pelicula in listaPeliculas2 %}
+                    <div class="col">
+                        <a href="{{ pelicula.get_absolute_url }}">
+                            {{ pelicula.titulo }}
+                            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+                        </a>
+                    </div>
+                    {% endfor %} {% else %}
+                    </p>No hay peliculas</p> {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#gallery3" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#gallery3" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+</div>
 {% endblock %}

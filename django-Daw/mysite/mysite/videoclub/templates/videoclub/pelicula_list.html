@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Book List</h1>
+    <h1>Peliculas del videoclub</h1>
 
     {% if pelicula_list %}
-    <ul>
+    <ul class= "ulPeliculas">
 
       {% for pelicula in pelicula_list %}
-      <li>
-        <a href="{{ pelicula.get_absolute_url }}">{{ pelicula.titulo }}</a> ({{pelicula.director}})
+      <li class="liPeliculas">
+        <a href="{{ pelicula.get_absolute_url }}">
+
+            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+
+        </a>
       </li>
       {% endfor %}
 
