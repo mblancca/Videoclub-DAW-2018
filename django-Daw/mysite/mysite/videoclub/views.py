@@ -12,14 +12,14 @@ from django.http import HttpResponse
 @login_required
 def index(request):
     listaPeliculas1 = Pelicula.objects.all().filter(
-        genero__name__icontains='genero1').order_by('-id')[:2]  # Coge las 2 primeras
+        genero__name__icontains='Drama').order_by('-id')[:2]  # Coge las 2 primeras
     listaPeliculas2 = Pelicula.objects.all().filter(
-        genero__name__icontains='genero1').order_by('id')[:2]  # Coge las 2 ultimas
+        genero__name__icontains='Acción').order_by('id')[:2]  # Coge las 2 ultimas
 
     listaPeliculas3 = Pelicula.objects.all().filter(
-        genero__name__icontains='accion').order_by('-id')[:2]  # Coge las 2 primeras
+        genero__name__icontains='Ciencia Ficción').order_by('-id')[:2]  # Coge las 2 primeras
     listaPeliculas4 = Pelicula.objects.all().filter(
-        genero__name__icontains='accion').order_by('id')[:2]  # Coge las 2 ultimas
+        genero__name__icontains='Comedia').order_by('id')[:2]  # Coge las 2 ultimas
 
     numero_visitas = request.session.get('numero_visitas', 0)
     request.session['numero_visitas'] = numero_visitas+1
