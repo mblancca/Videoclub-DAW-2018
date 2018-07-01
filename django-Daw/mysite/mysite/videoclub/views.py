@@ -12,14 +12,14 @@ from django.http import HttpResponse
 @login_required
 def index(request):
     listaPeliculas1 = Pelicula.objects.all().filter(
-        genero__name__icontains='Drama').order_by('-id')[:2]  # Coge las 2 primeras
+        genero__name__icontains='Drama').order_by('-id')[:4]  # Coge las 2 primeras
     listaPeliculas2 = Pelicula.objects.all().filter(
-        genero__name__icontains='Acción').order_by('id')[:2]  # Coge las 2 ultimas
+        genero__name__icontains='Acción').order_by('id')[:4]  # Coge las 2 ultimas
 
     listaPeliculas3 = Pelicula.objects.all().filter(
-        genero__name__icontains='Ciencia Ficción').order_by('-id')[:2]  # Coge las 2 primeras
+        genero__name__icontains='Ciencia Ficción').order_by('-id')[:4]  # Coge las 2 primeras
     listaPeliculas4 = Pelicula.objects.all().filter(
-        genero__name__icontains='Comedia').order_by('id')[:2]  # Coge las 2 ultimas
+        genero__name__icontains='Comedia').order_by('id')[:4]  # Coge las 2 ultimas
 
     numero_visitas = request.session.get('numero_visitas', 0)
     request.session['numero_visitas'] = numero_visitas+1
@@ -36,7 +36,7 @@ def index(request):
 
 class PeliculaListView(LoginRequiredMixin, generic.ListView):
     model = Pelicula
-    paginate_by = 10
+    paginate_by = 4
 
     def get_queryset(self):
         listaDePeliculas = self.model.objects.all()
@@ -60,6 +60,7 @@ def pelicula_detail_view(request, pk):
     )
 
 # Reparto de Directores
+
 
 class DirectorListView(LoginRequiredMixin, generic.ListView):
     model = Persona
@@ -98,15 +99,27 @@ def search_form(request):
 def search(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        peliculas = Pelicula.objects.filter(titulo__icontains=q)
-        return render(request, 'videoclub/search_results.html',
-                      {'peliculas': peliculas, 'query': q})
+        contadorPeliculas = Pelicula.objects.filter(
+            titulo__icontains=q).count()
+        contadorPersonas = Persona.objects.filter(nombre__icontains=q).count()
+        contadorGeneros = Genero.objects.filter(name__icontains=q).count()
+
+        if contadorPeliculas != 0:
+            peliculas = Pelicula.objects.filter(titulo__icontains=q)
+            return render(request, 'videoclub/search_results.html',
+                          {'peliculas': peliculas, 'query': q})
+        elif contadorPersonas != 0:
+            personas = Persona.objects.filter(nombre__icontains=q)
+            return render(request, 'videoclub/search_results.html',
+                          {'personas': personas, 'query': q})        
+        else:
+            return render(request, 'videoclub/search_results.html',
+                          {'query': q})
+
     else:
         return render(request, 'videoclub/search_error.html')
 
 # BAD!
-
-
 def bad_search(request):
     # The following line will raise KeyError if 'q' hasn't been submitted!
     message = 'You searched for: %r' % request.GET['q']

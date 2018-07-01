@@ -62,6 +62,12 @@ nav{
 	font-family: LemonMilklight;
 }
 
+.DAWFLIX{
+	color:red !important;
+}
+	.DAWFLIX:hover{
+		color:salmon !important;
+	}
 .cuadroLogin{
 	margin: 0 auto;
 	margin-top: 25%;
@@ -156,6 +162,11 @@ nav{
 	height: 278px !important;
 }
 
+.img-fluid {
+    max-width: 240px;
+    height: 410px;
+}
+
 .paginador{
 	margin-left: 46%;
 	margin-top: 5em;
@@ -171,13 +182,51 @@ li{
 
 .liPeliculas{
 	margin-right: 2em;
+	text-align: center;	
 }
 
+.row a {
+	color: floralwhite;
+}
+
+	.row a:hover{
+		color: floralwhite;
+	}
+
+.imgCarrousel{
+	display: grid !important;
+}
+
+.imgCarrousel p {
+	height: 1em;
+	font-family: LemonMilklight;	
+}
 
 /*Resoluciones pequenas*/
 @media only screen and (max-width: 600px) {
     .cajaLogin{
 		margin-top: 6em;
 		width: 90%;
+	}
+
+	.img-fluid {
+		max-width: 106px;
+		height: 225px;
+	}
+
+	.imgCarrousel{
+		margin-bottom: 2em;
+	}
+	.imgCarrousel p {
+		height: 3em;
+	}
+
+	.paginador {
+		margin-left: 15%;
+		margin-top: 2em;	
+	}
+
+	.liPeliculas {
+		margin-right: 0em;	
 	}
 }
