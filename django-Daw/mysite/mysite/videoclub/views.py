@@ -39,8 +39,7 @@ class PeliculaListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        listaDePeliculas = self.model.objects.filter(
-            genero__name__icontains='genero1')
+        listaDePeliculas = self.model.objects.all()
         return listaDePeliculas
 
 
