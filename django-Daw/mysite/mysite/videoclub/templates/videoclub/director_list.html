@@ -8,12 +8,12 @@
 
       {% for persona in persona_list %}
       <li>
-        <a href="{{ persona.get_absolute_url }}">Nombre del director: {{ persona.first_name }}</a>
+        <a href="{{ persona.get_absolute_url }}">{{ persona.nombre }}</a>
       </li>
       {% endfor %}
 
     </ul>
     {% else %}
-      <p>There are no directors in the library.</p>
+      <p>No hay directores almacenados en la aplicación.</p>
     {% endif %}       
 {% endblock %}

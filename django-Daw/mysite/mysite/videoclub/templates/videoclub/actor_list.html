@@ -8,7 +8,7 @@
 
       {% for persona in persona_list %}
       <li>
-        <a href="{{ persona.get_absolute_url }}">Nombre del Actor: {{ persona.first_name }}</a>
+        <a href="{{ persona.get_absolute_url }}">{{ persona.nombre }}</a>
       </li>
       {% endfor %}
 
