@@ -64,7 +64,7 @@ def pelicula_detail_view(request, pk):
 
 class DirectorListView(LoginRequiredMixin, generic.ListView):
     model = Persona
-    paginate_by = 10
+    paginate_by = 4
     template_name = 'videoclub/director_list.html'
 
     def get_queryset(self):
@@ -77,7 +77,7 @@ class DirectorListView(LoginRequiredMixin, generic.ListView):
 
 class ActorListView(LoginRequiredMixin, generic.ListView):
     model = Persona
-    paginate_by = 10
+    paginate_by = 4
     template_name = 'videoclub/actor_list.html'
 
     def get_queryset(self):

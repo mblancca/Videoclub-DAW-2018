@@ -14,7 +14,7 @@ class Persona(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('Died', null=True, blank=True)
     esDirector = models.CharField(max_length=2, default="no",help_text="si/no , en minusculas todo")
-    urlFoto = models.CharField(max_length=200, blank=False, default="https://www.yueimg.com/en/images/common/avatar.b6a87.png")
+    urlFoto = models.CharField(max_length=200, blank=False, default="https://www.w3schools.com/css/img_avatar.png")
        
     def get_absolute_url(self):        
         return reverse('persona-detalle', args=[str(self.id)])

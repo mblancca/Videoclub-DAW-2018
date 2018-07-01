@@ -55,6 +55,7 @@
 
 body{ 	
 	background: url('fondoLogin.jpg');
+	/*background: linear-gradient(to bottom right, rgb(24, 23, 23), rgb(165, 165, 165));*/
 	color: #fff;
 	font-family: RobotoLight;
 }
@@ -164,11 +165,11 @@ nav{
 
 .img-fluid {
     max-width: 240px;
-    height: 410px;
+    height: 315px;
 }
 
 .paginador{
-	margin-left: 46%;
+	justify-content: center;
 	margin-top: 5em;
 }
 
@@ -202,6 +203,114 @@ li{
 	font-family: LemonMilklight;	
 }
 
+.bloqueLista{
+	display: flex;
+	justify-content: center;
+}
+
+.imgPersonas{
+	border-radius: 8px;
+}
+
+.rowPersonas{
+	margin-left: 2%;
+}
+
+.h1Titulos{
+	margin-left:2em;
+	margin-top:2em;
+}
+.h1Titulo{
+	text-align: center;
+	margin-top:2em;
+}
+
+div.polaroid {
+	width: 80%;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 25px;
+  }
+  
+  div.container {
+	text-align: center;
+	padding: 10px 20px;
+  }
+
+  .container {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+	background-color: #AF4C4C;
+	color: white;
+	font-size: 16px;
+  	padding: 16px 32px;
+}
+
+.button {
+	display: inline-block;
+	padding: 5px 15px;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #AF4C4C;
+	border: none;
+	border-radius: 15px;
+  }
+  .page-links a{
+	color: #fff;
+  }
+  
+  .button:hover {background-color: rgba(175, 76, 76, 0.527);}
+  
+  .button:active {
+	background-color: #AF4C4C;
+	transform: translateY(4px);
+  }
+
+  .page-current{
+	  margin-left: 1em;
+	  margin-right: 1em;
+  }
+
+  .sesionCerrada{
+	text-align: center;
+	margin-top: 12em;
+  }
+
+
+
 /*Resoluciones pequenas*/
 @media only screen and (max-width: 600px) {
     .cajaLogin{
@@ -211,7 +320,7 @@ li{
 
 	.img-fluid {
 		max-width: 106px;
-		height: 225px;
+		height: 170px;
 	}
 
 	.imgCarrousel{
@@ -222,11 +331,29 @@ li{
 	}
 
 	.paginador {
-		margin-left: 15%;
-		margin-top: 2em;	
+		margin-top: 2em;
+		margin-bottom: 2em;	
 	}
 
 	.liPeliculas {
 		margin-right: 0em;	
+	}
+
+	.bloqueLista{
+		display: grid;
+	}
+
+	.h1Titulos{
+		text-align: center;
+		margin-left: 0em;
+		margin-top: 2em;
+	}
+
+	.container{
+		width: 44%;
+	}
+
+	.rowPersonas {
+		margin-left: -3%;
 	}
 }

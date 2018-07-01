@@ -1,19 +1,19 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<h1 class="h1Titulos">Directores</h1>
 
-{% block content %}
-    <h1>Director List</h1>
+{% if persona_list %}
+<div class="row rowPersonas">
+  {% for persona in persona_list %}
+  
+  <div class="col-md-2 col-sm-6 col-xs-8 container">
+    <img class="image-responsive img-fluid imgPersonas image" src="{{ persona.get_foto }}" alt="{{ persona.nombre }}"style="width:100%">
+    <div class="middle">
+      <div class="text"><a href="{{ persona.get_absolute_url }}">{{ persona.nombre }}</a></div>
+    </div>
+  </div>
 
-    {% if persona_list %}
-    <ul>
-
-      {% for persona in persona_list %}
-      <li>
-        <a href="{{ persona.get_absolute_url }}">{{ persona.nombre }}</a>
-      </li>
-      {% endfor %}
-
-    </ul>
-    {% else %}
-      <p>No hay directores almacenados en la aplicación.</p>
-    {% endif %}       
-{% endblock %}
+  {% endfor %}
+</div>
+{% else %}
+<p>No hay directores almacenados en el videoclub.</p>
+{% endif %} {% endblock %}

@@ -1,7 +1,7 @@
-{% extends "baseLogin.html" %}
+{% extends "baseLogin.html" %} {% block content %}
+<div class="sesionCerrada">
+    <h1>Has cerrado sesión</h1>
 
-{% block content %}
-<p>Logged out!</p>  
-
-<a href="{% url 'login'%}">Click here to login again.</a>
+    <a href="{% url 'login'%}">Haz click para iniciar sesion de nuevo</a>
+</div>
 {% endblock %}

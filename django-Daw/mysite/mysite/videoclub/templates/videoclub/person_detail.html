@@ -1,15 +1,20 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<h1 class="h1Titulo">{{ persona.nombre }}</h1>
+<div style="display: flex;">
+  <div>
+    <p>
+      <strong>Fecha de nacimiento:</strong> {{ persona.date_of_birth }}</p>
+    {% if persona.date_of_death %}
+    <p>      
+      <strong>Fecha de fallecimiento:</strong> {{ persona.date_of_death }}</p>
+    <p>
+    {% endif %}
+      <strong>¿Dirige alguna película?:</strong> {{persona.esDirector}}</p>
 
-{% block content %}
-  <h1>{{ persona.first_name }}</h1>
-
-  <p><strong>Nombre:</strong> <a href="">{{ persona.nombre }}</a></p> <!-- author detail link not yet defined -->
-  <p><strong>Fecha de nacimiento:</strong> {{ persona.date_of_birth }}</p>
-  <p><strong>Fecha de fallecimiento:</strong> {{ persona.date_of_death }}</p> 
-  <p><strong>Es director?:</strong> {{persona.esDirector}}</p> 
-
-  <div style="margin-left:20px;margin-top:20px">
-    <h4>:/</h4>
-
+      <iframe width="720" height="480" src="https://www.youtube.com/embed/YMNL8m0uDKM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
+  <div style="float: right; margin-right: 2em;">
+    <img class="image-responsive img-fluid imgPersonas image" src="{{ persona.get_foto }}" style="width:100%">
+  </div>
+</div>
 {% endblock %}

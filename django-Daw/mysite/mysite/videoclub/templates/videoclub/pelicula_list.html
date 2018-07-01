@@ -1,20 +1,21 @@
 {% extends "base.html" %} {% block content %}
-<h1>Peliculas del videoclub</h1>
+<h1 class="h1Titulos">Peliculas</h1>
 
 {% if pelicula_list %}
-
-<div class="liPeliculas">
+<div class="row rowPersonas">
   {% for pelicula in pelicula_list %}
-
-  <a href="{{ pelicula.get_absolute_url }}">
-
-    <img class="img-fluid" src='{{ pelicula.get_portada }}'>
-
-  </a>
+  
+  <div class="col-md-2 col-sm-6 col-xs-8 container">
+    <img class="image-responsive img-fluid imgPersonas image" src="{{ pelicula.get_portada }}" style="width:100%">
+    <div class="middle">
+      <div class="text"><a href="{{ pelicula.get_absolute_url }}">{{ pelicula.titulo }}</a></div>
+    </div>
+  </div>
 
   {% endfor %}
 </div>
-
 {% else %}
 <p>There are no books in the library.</p>
 {% endif %} {% endblock %}
+
+
