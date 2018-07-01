@@ -156,6 +156,11 @@ nav{
 	height: 278px !important;
 }
 
+.img-fluid {
+    max-width: 240px;
+    height: 410px;
+}
+
 .paginador{
 	margin-left: 46%;
 	margin-top: 5em;
@@ -173,11 +178,23 @@ li{
 	margin-right: 2em;
 }
 
+.row a {
+	color: floralwhite;
+}
+
+	.row a:hover{
+		color: floralwhite;
+	}
 
 /*Resoluciones pequenas*/
 @media only screen and (max-width: 600px) {
     .cajaLogin{
 		margin-top: 6em;
 		width: 90%;
+	}
+
+	.img-fluid {
+		max-width: 106px;
+		height: 225px;
 	}
 }

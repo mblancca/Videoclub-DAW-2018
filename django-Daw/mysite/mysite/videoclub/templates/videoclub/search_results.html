@@ -1,16 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>You searched for: <strong>{{ query }}</strong></p>
+<p>Has buscado: <strong>{{ query }}</strong></p>
    
 {% if peliculas %}           
-    <p>Hay {{ peliculas|length }} pelicula{{ peliculas|pluralize }}.</p>
-    <ul>               
+    <p>Hay {{ peliculas|length }} pelicula{{ peliculas|pluralize }} con ese titulo.</p>
+    <ul class= "ulPeliculas">               
         {% for pelicula in peliculas %}               
-        <li>Resultado: {{ pelicula.titulo }} </li>               
+        <li class="liPeliculas">
+            <a href="{{ pelicula.get_absolute_url }}">
+    
+                <img class="img-fluid" src='{{ pelicula.get_portada }}'>
+    
+            </a>
+          </li>               
+        {% endfor %}           
+    </ul>       
+     
+
+
+{% elif personas %}           
+    <p>Hay {{ personas|length }} persona{{ personas|pluralize }} con ese nombre.</p>
+    <ul class= "ulPeliculas">               
+        {% for persona in personas %}               
+        <li class="liPeliculas">
+            <!--<a href="{{ pelicula.get_absolute_url }}">
+    
+                <img class="img-fluid" src='{{ pelicula.get_portada }}'> -->
+                <a href="{{persona.get_absolute_url}}">{{persona.nombre}}</a>
+            </a>
+          </li>               
         {% endfor %}           
     </ul>       
 {% else %}           
-    <p>No peliculas matched your search criteria.</p>       
+    <p>No hay personas con ese nombre.</p>       
 {% endif %}  
 {% endblock %}
