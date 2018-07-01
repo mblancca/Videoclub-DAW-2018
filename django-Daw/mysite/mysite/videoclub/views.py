@@ -99,8 +99,11 @@ def search_form(request):
 def search(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        contadorPeliculas =  Pelicula.objects.filter(titulo__icontains=q).count()
-        contadorPersonas =  Persona.objects.filter(nombre__icontains=q).count()
+        contadorPeliculas = Pelicula.objects.filter(
+            titulo__icontains=q).count()
+        contadorPersonas = Persona.objects.filter(nombre__icontains=q).count()
+        contadorGeneros = Genero.objects.filter(name__icontains=q).count()
+
         if contadorPeliculas != 0:
             peliculas = Pelicula.objects.filter(titulo__icontains=q)
             return render(request, 'videoclub/search_results.html',
@@ -108,13 +111,15 @@ def search(request):
         elif contadorPersonas != 0:
             personas = Persona.objects.filter(nombre__icontains=q)
             return render(request, 'videoclub/search_results.html',
-                          {'personas': personas, 'query': q})
+                          {'personas': personas, 'query': q})        
+        else:
+            return render(request, 'videoclub/search_results.html',
+                          {'query': q})
+
     else:
         return render(request, 'videoclub/search_error.html')
 
 # BAD!
-
-
 def bad_search(request):
     # The following line will raise KeyError if 'q' hasn't been submitted!
     message = 'You searched for: %r' % request.GET['q']
