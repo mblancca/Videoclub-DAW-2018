@@ -15,6 +15,7 @@ class Persona(models.Model):
     date_of_death = models.DateField('Died', null=True, blank=True)
     esDirector = models.CharField(max_length=2, default="no",help_text="si/no , en minusculas todo")
     urlFoto = models.CharField(max_length=200, blank=False, default="https://www.w3schools.com/css/img_avatar.png")
+    urlVideo = models.CharField(max_length=200, blank=False, default="https://www.youtube.com/embed/_nq2BTuSOq4")
        
     def get_absolute_url(self):        
         return reverse('persona-detalle', args=[str(self.id)])

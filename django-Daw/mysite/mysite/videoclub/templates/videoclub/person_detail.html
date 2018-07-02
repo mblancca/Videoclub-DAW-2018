@@ -11,7 +11,8 @@
     {% endif %}
       <strong>¿Dirige alguna película?:</strong> {{persona.esDirector}}</p>
 
-      <iframe width="720" height="480" src="https://www.youtube.com/embed/YMNL8m0uDKM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe width="720" height="480" src="{{ persona.urlVideo }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
   </div>
   <div style="float: right; margin-right: 2em;">
     <img class="image-responsive img-fluid imgPersonas image" src="{{ persona.get_foto }}" style="width:100%">
