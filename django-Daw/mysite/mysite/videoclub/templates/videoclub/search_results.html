@@ -5,15 +5,16 @@
 
 {% if peliculas %}
 <p>Hay {{ peliculas|length }} pelicula{{ peliculas|pluralize }} con ese título.</p>
-<ul class="ulPeliculas">
+<div class="row rowPersonas">
     {% for pelicula in peliculas %}
-    <li class="liPeliculas">
-        <a href="{{ pelicula.get_absolute_url }}">
-            <img class="img-fluid" src='{{ pelicula.get_portada }}'>
-        </a>
-    </li>
+    <div class="col-md-2 col-sm-6 col-xs-8 container">
+        <img class="image-responsive img-fluid imgPersonas image" src="{{ pelicula.get_portada }}" style="width:100%">
+        <div class="middle">
+          <div class="text"><a href="{{ pelicula.get_absolute_url }}">{{ pelicula.titulo }}</a></div>
+        </div>
+      </div>
     {% endfor %}
-</ul>
+    </div>
 
 {% elif personas %}
 <p>Hay {{ personas|length }} persona{{ personas|pluralize }} con ese nombre.</p>

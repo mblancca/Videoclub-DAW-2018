@@ -80,15 +80,20 @@ nav{
 	margin-bottom: 4em;
 }
 
+.divLogin{
+	display: flex;
+	justify-content: center;
+}
+
 .cajaLogin{
 	margin-top: 14em;
 	color: black;
-}
-.cajaLogin .col-md-4{
 	background-color: white;
 	padding: 1em;
 	border-radius: 3px;
 	box-shadow: 3px 4px #3b3b3be6;
+	padding-top: 2%;
+	padding-bottom: 2%;
 }
 .cajaAltaUsuario {
 	margin-top: 7em;
@@ -138,6 +143,7 @@ nav{
 
 .sliders{
 	margin-top: 5em;
+	margin-bottom: 6em;
 }
 
 .tituloSliders{
@@ -199,7 +205,7 @@ li{
 }
 
 .imgCarrousel p {
-	height: 1em;
+	height: 2em;
 	font-family: LemonMilklight;	
 }
 
@@ -307,6 +313,11 @@ div.polaroid {
   .sesionCerrada{
 	text-align: center;
 	margin-top: 12em;
+  }
+
+  a:hover {
+	  color:white;
+	  text-decoration: none;
   }
 
 
